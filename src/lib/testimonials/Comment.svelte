@@ -1,6 +1,5 @@
 <script lang="ts">
 	import type { GHComment as CommentType } from '$lib/scripts/github';
-	import SvelteMarkdown from 'svelte-markdown';
 	export let comment: CommentType;
 </script>
 

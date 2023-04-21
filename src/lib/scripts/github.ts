@@ -75,6 +75,8 @@ const loadEverything = async () => {
     commentsStore.set(goodComments);
     return { issue: issue, comments: goodComments };
   };
+
+  return { issue: issue, comments: [] };
 };
 
 export type { GHIssue, GHComment };
