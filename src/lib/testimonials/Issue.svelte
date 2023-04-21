@@ -1,8 +1,9 @@
 <script lang="ts">
+	import type { GHIssue } from '$lib/scripts/github';
 	import SvelteMarkdown from 'svelte-markdown';
-	import { issueStore } from '$lib/scripts/github';
+	export let issue: GHIssue;
 </script>
 
-{#if $issueStore}
-	<SvelteMarkdown source={$issueStore.body} />
+{#if issue}
+	<SvelteMarkdown source={issue.body} />
 {/if}

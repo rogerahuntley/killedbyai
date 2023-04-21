@@ -1,12 +1,12 @@
 <script lang="ts">
-	import SvelteMarkdown from 'svelte-markdown';
+	import type { GHComment } from '$lib/scripts/github';
 	import Comment from '$lib/testimonials/Comment.svelte';
-	import { commentsStore } from '$lib/scripts/github';
+	export let comments: GHComment[];
 </script>
 
-{#if $commentsStore}
+{#if comments && comments.length > 0}
 	<ul class="comments">
-		{#each $commentsStore as comment}
+		{#each comments as comment}
 			<li class="comment-box">
 				<Comment {comment} />
 			</li>

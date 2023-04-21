@@ -42,10 +42,8 @@ const loadIssue = async () => {
 };
 
 const loadComments = async (page = 1) => {
-  console.log(page)
   const response = await fetch(`https://api.github.com/repos/${repo}/issues/${issueId}/comments?per_page=${commentsPerPage}&page=${page}`);
   const comments = await response.json();
-  console.log(comments)
 
   return comments as GHComment[]
 };
