@@ -59,8 +59,21 @@ const loadEverything = async () => {
       page++;
     }
 
-    commentsStore.set(allComments);
-    return { issue: issue, comments: allComments };
+    // now we want to loop and make sure no user has more than 1 comment. show most recent
+    const userComments: { [key: number]: { count: number, comment: GHComment} } = {};
+    allComments.forEach((comment) => {
+      if (userComments[comment.user.id]) {
+        userComments[comment.user.id].count++;
+        userComments[comment.user.id].comment = comment;
+      } else {
+        userComments[comment.user.id]= { count: 1, comment };
+      }
+    });
+
+    const goodComments = Object.values(userComments).map((userComment) => userComment.comment);
+    
+    commentsStore.set(goodComments);
+    return { issue: issue, comments: goodComments };
   };
 };
 
