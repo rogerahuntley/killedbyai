@@ -11,7 +11,7 @@
 		</div>
 		<hr />
 		<div class="user-comment">
-			<SvelteMarkdown source={comment.body} />
+			{comment.body}
 		</div>
 	</div>
 {/if}
