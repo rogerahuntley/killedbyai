@@ -32,6 +32,8 @@
 	"dependencies": {
 		"@sveltejs/adapter-static": "^2.0.2",
 		"async-neocities": "^2.1.5",
-		"dotenv": "^16.0.3"
+		"dotenv": "^16.0.3",
+		"sass": "^1.62.0",
+		"svelte-markdown": "^0.2.3"
 	}
 }
